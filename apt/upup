@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ $(id -u) -ne 0 ]; then
+  echo "This script must be run as root" 1>&2
+  exit 77
+fi
+
+echo 'UPUP
+' && apt update && echo -n '
+' && apt upgrade && echo -n '
+' && apt autoremove && echo -n '
+' && apt autoclean && echo -n '
+';
